@@ -152,7 +152,7 @@ while True:
             box = np.int64(box)
             
             #moment
-            M = cv2.moment(c)
+            M = cv2.moments(c)
             center = (int(M["m10"] / M["m00"]),int(M["m01"] / M["m00"]))
             
             #draw          
@@ -168,12 +168,12 @@ while True:
         
         
         cv2.imshow("Original", imgOriginal)
+        
+        if cv2.waitkey(1) & 0XFF == ord("q") : break
     
     
-    
-    if cv2.waitkey(1) & 0XFF == ord("q") : break
-    cap.release()
-    cv2.detroyAllWindows()
+cap.release()
+   
     
     
 
